@@ -1,13 +1,13 @@
 
 # # O(n^2)
-# def bad_two_sum?(arr, target_sum)
-#     arr.each_with_index do |n1, i|
-#         arr.each_with_index do |n2, j|
-#             return true if n1 + n2 == target_sum && j > i
-#         end
-#     end
-#     false
-# end
+def bad_two_sum?(arr, target_sum)
+    arr.each_with_index do |n1, i|
+        arr.each_with_index do |n2, j|
+            return true if n1 + n2 == target_sum && j > i
+        end
+    end
+    false
+end
 
 
 # arr = [0, 1, 5, 7]
@@ -35,9 +35,31 @@ def good_two_sum?(arr, target_sum) #sorting
     false
 end
 
-arr = [0, 1, 5, 7]
-arr1 = [2, 25, 6, 5, 7, 1]
-p good_two_sum?(arr, 6) # => should be true
-p good_two_sum?(arr, 10) # => should be false
-p good_two_sum?(arr1, 9) # =>true
-p good_two_sum?(arr1, 26) # =>true
+# arr = [0, 1, 5, 7]
+# arr1 = [2, 25, 6, 5, 7, 1]
+# p good_two_sum?(arr, 6) # => should be true
+# p good_two_sum?(arr, 10) # => should be false
+# p good_two_sum?(arr1, 9) # =>true
+# p good_two_sum?(arr1, 26) # =>true
+
+def great_two_sum?(arr, target)
+    hash = {}
+
+    arr.each do |ele|
+        if hash[ele]
+            return true 
+        else 
+            hash[target - ele] = true  
+        end 
+    end 
+    false 
+end 
+
+
+# arr = [0, 1, 5, 7]
+# arr1 = [2, 25, 6, 5, 7, 1]
+
+# p great_two_sum?(arr, 6) # => should be true
+# p great_two_sum?(arr, 10) # => should be false
+# p great_two_sum?(arr1, 9) # =>true
+# p great_two_sum?(arr1, 26) # =>true
