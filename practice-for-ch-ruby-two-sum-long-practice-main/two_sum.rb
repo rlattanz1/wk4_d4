@@ -30,6 +30,7 @@ def good_two_sum?(arr, target_sum) #sorting
         else
             i +=1
         end
+    i+=1
     end
     false
 end
